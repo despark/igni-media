@@ -1,7 +1,7 @@
 {
-    "name": "despark/laravel-db-localization",
-    "description": "Media  package for laravel framework",
-    "keywords": ["framework", "laravel", "despark", "media"],
+    "name": "despark/igni-media",
+    "description": "Media package for laravel framework",
+    "keywords": ["framework", "laravel", "despark", "media", "igni"],
     "license": "MIT",
     "authors": [
         {
@@ -19,10 +19,13 @@
     ],
     "require": {
         "php": ">=7.0",
+        "despark/igni-core": "@dev",
         "illuminate/support": "5.4.*",
         "illuminate/routing": "5.4.*",
         "illuminate/database": "5.4.*",
-        "spatie/laravel-medialibrary": "^5.0.*",
+        "spatie/laravel-medialibrary": "^5.0.0",
+        "barryvdh/laravel-elfinder": "^0.3.10",
+        "league/glide": "^1.2"
     },
     "require-dev": {
         "mockery/mockery": "0.9.*",
@@ -31,7 +34,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Despark\\Media\\": "src/"
+            "Despark\\Cms\\Media\\": "src/"
         }
     },
     "minimum-stability": "stable"
