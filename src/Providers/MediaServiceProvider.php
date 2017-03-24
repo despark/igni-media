@@ -29,6 +29,10 @@ class MediaServiceProvider extends ServiceProvider
             __DIR__.'/../../gulp/' => base_path('/gulp'),
         ], 'gulp');
 
+        $this->publishes([
+            __DIR__.'/../../resources/assets/igni-media.js' => public_path('igni-media/igni-media.js'),
+        ], 'igni-media');
+
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'ignicms-media');
     }
 

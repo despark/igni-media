@@ -1,4 +1,7 @@
 <div class="form-group">
-    <h3>{{$field->getLabel()}}</h3>
-    <a href="javascript:void(0)" class="btn btn-primary popup_selector" data-inputid="{{$field->getElementName()}}">Add media</a>
+    <div id="{{$field->getMediaId()}}" class="media-field-wrapper">
+        <h3>{{$field->getLabel()}}</h3>
+
+        <a href="javascript:void(0)" class="btn btn-primary media-selector" data-media-route="{{$field->getModalRoute()}}">Add media</a>
+    </div>
 </div>

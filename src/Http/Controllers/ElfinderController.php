@@ -6,11 +6,11 @@ namespace Despark\Cms\Media\Http\Controllers;
 
 use Despark\Cms\Contracts\AssetsContract;
 use Despark\Cms\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use League\Glide\Responses\LaravelResponseFactory;
-use League\Glide\ServerFactory;
 
-class MediaController extends Controller
+/**
+ * Class ElfinderController.
+ */
+class ElfinderController extends Controller
 {
     /**
      * @var AssetsContract
@@ -27,27 +27,10 @@ class MediaController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @param         $path
-     * @return mixed
-     */
-    public function get(Request $request, $path)
-    {
-        $server = ServerFactory::create([
-            'source' => app('filesystem')->disk('private')->getDriver(),
-            'cache' => storage_path('glide'),
-            'response' => new LaravelResponseFactory(app('request')),
-            'source_path_prefix' => 'elfinder',
-        ]);
-
-        return $server->getImageResponse($path, $request->all());
-    }
-
-    /**
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function loadModal($id)
+    public function load($id)
     {
         if (env('APP_DEBUG', false)) {
             $this->assetManager->addCss('elfinder/css/elfinder.full.css');
@@ -61,12 +44,12 @@ class MediaController extends Controller
         $locale = \App::getLocale();
 
         if ($locale) {
-            $this->assetManager->addJs('elfinder/js/i18n/elfinder.'.$locale.'.js');
+            $this->assetManager->addJs('elfinder/js/i18n/elfinder'.$locale.'.js');
         }
 
         $data = compact('locale', 'id');
 
-        return view('ignicms-media::modal', $data);
+        return view('ignicms-media::elfinder.view', $data);
     }
 
 }
